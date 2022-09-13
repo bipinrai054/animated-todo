@@ -8,6 +8,7 @@ import {
   useColorMode,
   useColorModeValue
 } from 'native-base'
+import ThemeToggle from '../components/theme-toggle'
 
 export default function MainScreen() {
   return (
@@ -21,6 +22,7 @@ export default function MainScreen() {
         <Box>
           <Text>Hello</Text>
         </Box>
+        <ThemeToggle />
       </VStack>
     </Center>
   )
