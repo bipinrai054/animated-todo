@@ -10,9 +10,14 @@ import {
 } from 'native-base'
 import ThemeToggle from '../components/theme-toggle'
 import { Checkbox } from 'react-native-paper'
+import { Pressable } from 'react-native'
+import TaskItem from '../components/task-item'
 
 export default function MainScreen() {
-  const [check, setCheck] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
+  const handlePressCheckbox = React.useCallback(() => {
+    setChecked(prev => !prev)
+  }, [])
   return (
     <Center
       _dark={{ bg: 'blueGray.900' }}
@@ -25,10 +30,9 @@ export default function MainScreen() {
           <Text>Hello</Text>
         </Box>
         <ThemeToggle />
-        <Checkbox
-          status={check ? 'checked' : 'unchecked'}
-          onPress={() => setCheck(prev => !prev)}
-        />
+        <Pressable onPress={handlePressCheckbox}>
+          <TaskItem isDone={checked} onToggleCheckBox={handlePressCheckbox} />
+        </Pressable>
       </VStack>
     </Center>
   )
