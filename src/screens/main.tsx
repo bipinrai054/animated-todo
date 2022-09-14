@@ -25,13 +25,17 @@ export default function MainScreen() {
       px={5}
       flex={1}
     >
-      <VStack space={5} alignItems="center">
+      <VStack space={5} alignItems="center" w="full">
         <Box p={10} bg={useColorModeValue('red.500', 'yellow.500')}>
           <Text>Hello</Text>
         </Box>
         <ThemeToggle />
         <Pressable onPress={handlePressCheckbox}>
-          <TaskItem isDone={checked} onToggleCheckBox={handlePressCheckbox} />
+          <TaskItem
+            subject="noice"
+            isDone={checked}
+            onToggleCheckBox={handlePressCheckbox}
+          />
         </Pressable>
       </VStack>
     </Center>
